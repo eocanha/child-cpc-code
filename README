@@ -1,0 +1,20 @@
+How to create an image file and import the program into it:
+
+$ dskform -format cpcdata child-cpc-code.dsk
+$ unix2dos draw-fn.bas
+$ iDSK child-cpc-code.dsk -i draw-fn.bas -t 0
+
+This will be an ASCII file (slower to load), not a pre-parsed binary BASIC file. Now load the dsk image on an emulator, load the file and (optionally) save it as a pre-parsed binary BASIC file:
+
+load"draw-fn.bas
+save"draw-fn.bas
+
+And run it on the emulator:
+
+run
+
+dskform should come from the libdsk-utils package in your Linux distro.
+unix2dos should come from the dos2unix package in your Linux distro.
+iDSK available here: https://github.com/cpcsdk/idsk
+Cpcemu is a good offline multiplatform emulator: https://cpc-emu.org/download.html
+There's an online emulator in https://retroshowcase.gr/cpcbox-master/ but it can't write on disk images. For that you'll need and offline emulator in your computer.
